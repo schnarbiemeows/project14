@@ -31,7 +31,7 @@ public class UserController {
     public ResponseEntity<User> getUserById(@PathVariable int id) {
         User user = userService.getUserById(id);
         if(user==null) {
-            throw new UserNotFoundException("ID : " + id + " not found");
+            throw new UserNotFoundException("ID : " + id + " was not found");
         }
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
