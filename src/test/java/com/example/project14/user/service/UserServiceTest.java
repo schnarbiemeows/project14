@@ -38,6 +38,7 @@ class UserServiceTest {
 
     @Test
     void getUserById() {
+        System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHIIIIIIIIIIIIIIIIIII!!!!!!!!!!!!!!!");
     }
 
     @Test
