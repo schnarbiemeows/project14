@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("Cleaning stage") {
+        /* stage("Cleaning stage") {
             steps {
                 bat "mvn clean"
             }
@@ -15,6 +15,18 @@ pipeline {
             steps {
                 echo "deploying"
                 echo "deployed"
+            }
+        } */
+        stage("parallel exceution") {
+            steps {
+                parallel {
+                    a: [
+                        bat "mvn clean"
+                    ],
+                    b: [
+                        bat "mvn install"
+                    ]
+                }
             }
         }
     }
