@@ -19,14 +19,14 @@ pipeline {
         } */
         stage("parallel exceution") {
             steps {
-                parallel {
+                parallel (
                     a: {
                         bat "mvn clean"
                     },
                     b: {
                         bat "mvn install"
                     }
-                }
+                )
             }
         }
     }
