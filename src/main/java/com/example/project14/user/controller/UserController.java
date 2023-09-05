@@ -11,6 +11,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/users")
@@ -23,7 +25,12 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
+    public ResponseEntity<List<User>> getAllUsers() throws InterruptedException {
+        int min = 1000;
+        int max = 7000;
+        int timeDelay = ThreadLocalRandom.current().nextInt(min, max);
+        System.out.println("sleeping for " + timeDelay + " seconds");
+        TimeUnit.MILLISECONDS.sleep(timeDelay);
         return new ResponseEntity<List<User>>(userService.getAllUsers(), HttpStatus.OK);
     }
 
