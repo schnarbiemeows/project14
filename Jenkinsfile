@@ -20,12 +20,12 @@ pipeline {
         stage("parallel exceution") {
             steps {
                 parallel {
-                    a: [
+                    a: {
                         bat "mvn clean"
-                    ],
-                    b: [
+                    },
+                    b: {
                         bat "mvn install"
-                    ]
+                    }
                 }
             }
         }
